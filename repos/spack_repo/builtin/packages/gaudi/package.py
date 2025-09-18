@@ -125,6 +125,12 @@ class Gaudi(CMakePackage, CudaPackage):
         when="@40.0",
     )
 
+    patch(
+        "https://gitlab.cern.ch/gaudi/Gaudi/-/commit/e290304abb385ee6077d36cbcd67e8d39e379ae4.diff",
+        sha256="f812fae60f17a5a2e75ccd68f0e8c28a1df9e272b569e086ad756ef4fc75661a",
+        when="@:40.0 ^python@3.13:",
+    )
+
     # These dependencies are needed for a minimal Gaudi build
     depends_on("cxx", type="build")
     depends_on("aida")
