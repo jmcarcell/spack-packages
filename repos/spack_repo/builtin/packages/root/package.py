@@ -501,10 +501,6 @@ class Root(CMakePackage):
     # ROOT <6.14 is incompatible with Python >=3.7, which is the minimum supported by spack
     conflicts("+python", when="@:6.13", msg="Spack wants python >=3.7, too new for ROOT <6.14")
 
-    # ROOT does not support LTO builds
-    # See https://github.com/root-project/root/issues/11135
-    conflicts("+ipo", msg="LTO is not a supported configuration for building ROOT")
-
     @when("+root7 +geom +webgui")
     def patch(self):
         filter_file(
