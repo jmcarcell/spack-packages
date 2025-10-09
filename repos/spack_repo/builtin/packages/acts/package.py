@@ -423,6 +423,9 @@ class Acts(CMakePackage, CudaPackage):
     depends_on("py-pybind11 @2.6.2:", when="+python @18:")
     depends_on("py-pybind11 @2.13.1:", when="+python @36:")
     depends_on("py-pytest", when="+python +unit_tests")
+    depends_on("py-numpy", type="build")
+    depends_on("py-sympy", type="build")
+    depends_on("py-particle", type="build")
 
     with when("+tgeo"):
         depends_on("root @6.10:")
