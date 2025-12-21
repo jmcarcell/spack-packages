@@ -172,6 +172,8 @@ class Root(CMakePackage):
         when="@6.32.0:6.32.02",
     )
 
+    patch("ipo.patch")
+
     if _is_macos:
         # Resolve non-standard use of uint, _cf_
         # https://sft.its.cern.ch/jira/browse/ROOT-7886.
@@ -557,7 +559,6 @@ class Root(CMakePackage):
 
     # ROOT does not support LTO builds
     # See https://github.com/root-project/root/issues/11135
-    conflicts("+ipo", msg="LTO is not a supported configuration for building ROOT")
 
     @when("+root7 +geom +webgui")
     def patch(self):

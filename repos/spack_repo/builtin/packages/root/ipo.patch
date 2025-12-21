@@ -1,0 +1,12 @@
+diff --git a/interpreter/llvm-project/llvm/CMakeLists.txt b/interpreter/llvm-project/llvm/CMakeLists.txt
+index f5293e86632..cbe8ada157e 100644
+--- a/interpreter/llvm-project/llvm/CMakeLists.txt
++++ b/interpreter/llvm-project/llvm/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ # See docs/CMake.html for instructions about how to build LLVM with CMake.
+ 
++set(CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF)
++
+ cmake_minimum_required(VERSION 3.20.0)
+ 
+ include(CMakeDependentOption)
